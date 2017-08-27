@@ -1,0 +1,7 @@
+<h3 class="title">{{title}}</h3>
+<div class="photosContainer" *ngIf="photos">	
+	<div class="thumbnail" *ngFor="let photo of photos">
+		<img src="{{photo.thumbnailUrl}}"> 
+	</div>
+
+</div>	

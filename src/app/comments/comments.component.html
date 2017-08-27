@@ -1,0 +1,11 @@
+<div class="commentContainer"  >
+	<h5 align="center">COMMENTS</h5>
+	<div *ngFor="let comment of comments">
+		<p class="commentBody">
+			{{comment.body}}
+		</p>
+		<span class="badge"><app-like></app-like></span>
+		<p class="userEmail" *ngIf="comment">{{comment.email}}</p>
+		<hr noshade width="70%" align="center" style="margin-top : 15px; margin-bottom: 15px;">
+	</div>
+</div>	

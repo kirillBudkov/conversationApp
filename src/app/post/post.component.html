@@ -1,0 +1,8 @@
+
+<p class="title" > {{post.title}}</p>
+<hr noshade width="50%" align="center" style="margin-top : 0px; margin-bottom: 10px">
+<span class="badge"><app-like></app-like></span>
+<ng-container *ngIf="user">
+<p class="userName" *ngIf="!defineUser">{{user.name}}</p>
+<ng-container>
+<div class="clearfix"></div>

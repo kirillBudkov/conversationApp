@@ -1,0 +1,52 @@
+@mixin rightPart 
+	float: right
+	width: 40%	
+	margin-right: 5%
+
+.postsContainer
+	padding-top: 30px
+.pag
+	margin-left: 5%
+.pagination li span:hover
+	background-color: #e0eaff
+	color: blue
+.rightContainer
+	@include rightPart
+.leftContainer 
+	float: left
+	width: 30%	
+	margin-left: 5%	
+.list-group-item	
+	padding: 0
+	p::first-letter
+		text-transform: uppercase
+.post
+	padding: 5px 10px 10px 5px
+	margin-bottom: 0
+.postTitle
+	background-color: #d5e0f2
+.btn
+	width: 140px
+	font-weight: 600
+	margin-left: 5%
+	border: 1px solid #46b8da
+	background-color: #365a8c
+	border-radius: 10px
+	padding: 6px 12px
+	color: #ffffff
+	letter-spacing: 0.4px
+	font-size: 15px
+	text-transform: uppercase
+	&:hover
+		background-color: #7c93b2
+	&:active
+		background-color:#1a1f26
+	&:focus
+		outline: none	
+.activeLink
+	background-color: #213147
+	color: white		
+.makePostContainer
+	@include rightPart
+	margin-bottom: 20px
+	

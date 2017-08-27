@@ -1,0 +1,11 @@
+<div class="usersContainer">
+<h1>USERS</h1>
+<h2 *ngIf="!users">LOADING ...</h2>
+<ul *ngIf="users">
+  	<ng-container *ngFor="let user of users">
+  	<li *ngIf="user.id!=5">
+    	<a routerLink="/user/{{user.id}}/info/{{user.id}}">{{user.name}}</a>
+	</li>
+	</ng-container>
+</ul>
+</div>

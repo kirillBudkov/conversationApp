@@ -1,0 +1,13 @@
+<p *ngIf="view" [innerText]="albumTitle">{{albumTitle}}yyy</p>
+<div *ngIf="albums" class="albumsContainer">
+	
+	<ul class="albumsList" >
+		<ng-container *ngIf="!view1">
+		<li class="albumContainer" *ngFor="let album of albums" >
+			<a routerLink="/user/{{id}}/albums/{{id}}/album/{{album.id}}" [queryParams]="{'title': album.title }" >{{album.title}}</a>	
+		</li>
+	</ng-container>	
+	</ul>	
+</div>
+
+<router-outlet (activate)='onActivate($event)'></router-outlet>

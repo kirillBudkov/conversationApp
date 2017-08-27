@@ -1,0 +1,24 @@
+
+<div class="container info" *ngIf="user">	
+	<div class="col-xs-4">
+		<ul>
+			<li>Name: {{user.name}}</li>
+			<li>User name: {{user.username}}</li>
+			<li>Phone: {{user.phone}}</li>
+			<li>Website: {{user.website}}</li>
+			<li>Email: {{user.email}}</li>
+		</ul>
+	</div>
+	<div class="col-xs-4">
+		<ul>
+			<li>City: {{user.address.city}}</li>
+			<li>Street: {{user.address.street}}</li>
+			<li>Suite: {{user.address.suite}}</li>
+			<li>Zipcode: {{user.address.zipcode}}</li>
+			<li>Company: {{user.company.name}}</li>
+		</ul>
+	</div>
+<div class="col-xs-4">
+<app-map [latt]="user.address.geo.lat" [lngg]="user.address.geo.lng" [lattCh]="user.address.geo.lat" [lnggCh]="user.address.geo.lng"></app-map>
+</div>
+</div> 

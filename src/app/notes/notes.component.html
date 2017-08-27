@@ -1,0 +1,7 @@
+<div class="note_editor">
+  	<textarea #newNoteTitle id="newNoteTitle" rows="5" cols="50" type="text" class="note_editor__ta" placeholder="Title..."></textarea>
+  	<textarea #newNoteBody id="newNoteBody" rows="5" cols="50" type="text" class="note_editor__ta" placeholder="Note..."></textarea>
+  		<div class="note_editor__footer">
+    			<button class="note_editor__add_btn" (click)="addNote( newNoteBody, newNoteTitle)" >Add note</button>
+  		</div>	
+</div>

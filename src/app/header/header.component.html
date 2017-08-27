@@ -1,0 +1,27 @@
+<div class="header">
+
+
+<button type="button" class="btn btn-primary back" *ngIf="back" >
+	<a routerLink="/">BACK</a>
+</button>
+<button type="button" class="btn btn-primary" *ngIf="!back" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact:true}">
+	<a routerLink="/users">USERS</a>
+</button>
+<button type="button" class="btn btn-primary" *ngIf="!back" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact:true}">
+	<a routerLink="/posts">POSTS</a>
+</button>
+<button type="button" class="btn btn-primary" *ngIf="back" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact:true}">
+	<a routerLink="/user/{{userId}}/info/{{userId}}">INFO</a>
+</button>
+<button type="button" class="btn btn-primary" *ngIf="back" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact:true}">
+	<a routerLink="/user/{{userId}}/posts/{{userId}}">POSTS</a>
+</button>
+<button type="button" class="btn btn-primary" *ngIf="back" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact:true}">
+	<a routerLink="/user/{{userId}}/albums/{{userId}}">ALBUMS</a>
+</button>
+
+<button type="button" class="btn btn-primary" (click)="myProfile()">
+	<a routerLink="/user/{{authorize.userId}}/info/{{authorize.userId}}" >MY PROFILE</a>
+</button>
+
+</div>	

@@ -1,0 +1,41 @@
+<button type="button" *ngIf="makeNote" class="btn btn-primary" [class.activeLink]="createNote" (click)="openWriter()"> CREATE POST
+		</button>
+<div class="postsContainer">
+	<nav class="pag" *ngIf="usePag && posts">
+  		<ul class="pagination">
+    		<li [ngClass]="{disabled: currentPage==1}" (click)="setPage(currentPage-1)"><span aria-hidden="true">&laquo;</span></li>
+    		<li *ngFor="let page of pages" [ngClass]="{active : currentPage==page}" (click)="setPage(page)"><span >{{page}}</span></li>
+    		<li [ngClass]="{disabled: currentPage==lastPage}" (click)="setPage(currentPage+1)"><span aria-hidden="true">&raquo;</span></li>
+  		</ul>
+	</nav>
+	<div class="leftContainer"  *ngIf="posts">	
+		<ul class="list-group">
+ 			 <li class="list-group-item" *ngFor="let post of pageItems">
+    			<app-post  [post]="post" [defineUser]="defineUser" [actTitle]="showDetails" (click)="open($event, post.id, post.title, post.body)">  
+				</app-post> 
+			</li>   
+		</ul>
+	</div>
+	<div class="makePostContainer" *ngIf="makeNote">
+		<div class="note_editor" *ngIf="createNote" >
+  			<textarea #newNoteTitle id="newNoteTitle" rows="5" cols="50" type="text" class="note_editor__ta" placeholder="Title..."></textarea>
+  			<textarea #newNoteBody id="newNoteBody" rows="5" cols="50" type="text" class="note_editor__ta" placeholder="Note..."></textarea>
+  			<div class="note_editor__footer">
+    			<button type="button" class="btn btn-primary" (click)="addNote( newNoteBody, newNoteTitle)" >Add note</button>
+  			</div>	
+		</div>
+	</div>	
+	<div class="rightContainer" *ngIf="showDetails">
+		<div class="titleBody">
+			<ul class="list-group">
+				<li class="list-group-item"><p class="post postTitle">{{postTitle}}</p>
+				</li>  
+				<li class="list-group-item"><p class="post postBody">{{postBody}}</p>
+			</li> 
+			</ul>	
+
+		</div>	
+	<app-comments  [postId]="postId"></app-comments>
+	</div>
+</div>
+
