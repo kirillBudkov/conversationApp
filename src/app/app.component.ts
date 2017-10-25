@@ -8,14 +8,12 @@ import {aUser} from './authorizeUser'
   providers: [aUser]
 })
 export class AppComponent {
+
 	constructor(private authUser: aUser) {}
-
-authorize = this.authUser.getAuthorized()
-
-someid;
-onActivate($event) {
-
-this.someid=$event.id;
-
-}
+	
+	authorize = this.authUser.getAuthorized()
+	someid;
+	onActivate($event) {
+		this.someid=$event.id;
+	}
 }

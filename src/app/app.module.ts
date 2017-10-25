@@ -17,86 +17,37 @@ import { HeaderComponent } from './header/header.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
 import { UserInfoComponent } from './user-info/user-info.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { MapComponent } from './map/map.component';
+import {AppRoutingModule} from './app-routing.module';
+import { AlbumGuard} from './album.guard';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UsersComponent,
-    LikeComponent,
-    ProfileComponent,
-    AlbumsComponent,
-    AlbumComponent,
-    NotesComponent,
-    CommentsComponent,
-    HeaderComponent,
-    PostsComponent,
-    PostComponent,
-    UserInfoComponent,
-    NavbarComponent,
-    MapComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAUA8vqqBXbro1yAtxr8T8rGrIrB4ULf6w'
-    }),
-    HttpModule,
-    RouterModule.forRoot([
-      {
-        path: 'users',
-        component: UsersComponent
-      },
-      {
-        path: '',
-        redirectTo: '/users',
-        pathMatch: 'full'
-      },
-      {
-        path: 'posts',
-        component: PostsComponent
-      },
-      {
-        path: 'user/:id',
-         component: ProfileComponent
-      },  
-      {
-        path: 'user/:id',
-        component: ProfileComponent,
-        children: [
-            {
-            path: 'info/:id',
-            component: UserInfoComponent,
-            },
-            {
-            path: 'posts/:id',
-            component: PostsComponent
-            },
-            {
-            path: 'albums/:id',
-            component: AlbumsComponent
-            },
-            {
-            path: 'albums/:id',
-            component: AlbumsComponent,
-            children: [
-                {
-                path: 'album/:albumId',
-                component: AlbumComponent
-                },    
-                      ]
-            },
-        ]
-      },
-      {
-      path: '**',
-      redirectTo: 'users'
-      }
-      ])
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        UsersComponent,
+        LikeComponent,
+        ProfileComponent,
+        AlbumsComponent,
+        AlbumComponent,
+        NotesComponent,
+        CommentsComponent,
+        HeaderComponent,
+        PostsComponent,
+        PostComponent,
+        UserInfoComponent,
+        MapComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        AgmCoreModule.forRoot({
+        apiKey: 'AIzaSyAUA8vqqBXbro1yAtxr8T8rGrIrB4ULf6w'
+        }),
+        AppRoutingModule
+    ],
+    providers: [AlbumGuard],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
+
